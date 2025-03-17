@@ -3,10 +3,10 @@ import { usePlugin, renderWidget, useTracker } from "@remnote/plugin-sdk";
 export const AnkiDashboardWidget = () => {
   const plugin = usePlugin();
 
-  // Wir simulieren die Kartenstatistiken als Plugin-Settings
-  let newCards = useTracker(() => plugin.settings.getSetting<number>("anki-new-cards")) || 0;
-  let reviews = useTracker(() => plugin.settings.getSetting<number>("anki-reviews")) || 0;
-  let totalCards = useTracker(() => plugin.settings.getSetting<number>("anki-total-cards")) || 0;
+  // Wir lesen die Anzahl neuer Karten, Wiederholungen und Gesamtanzahl
+  let newCards = useTracker(() => plugin.queue.getNumberOfNewCards()) || 0;
+  let reviews = useTracker(() => plugin.queue.getNumberOfDueCards()) || 0;
+  let totalCards = newCards + reviews; // Gesamtanzahl berechnen
 
   return (
     <div className="p-2 m-2 rounded-lg rn-clr-background-light-positive rn-clr-content-positive">
@@ -29,5 +29,5 @@ export const AnkiDashboardWidget = () => {
   );
 };
 
-// Widget registrieren
+// Widget in RemNote registrieren
 renderWidget(AnkiDashboardWidget);
