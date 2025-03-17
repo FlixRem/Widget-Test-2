@@ -1,22 +1,21 @@
 {
   "manifestVersion": 1,
-  "id": "Widget-Test-2",
-  "name": "Widget-Test-2",
+  "id": "numberslikeanki",
+  "name": "Numbers Like Anki",
   "author": "FlixRem",
   "repoUrl": "https://github.com/FlixRem/Widget-Test-2",
   "version": {
-    "major": 0,
+    "major": 1,
     "minor": 0,
-    "patch": 1
+    "patch": 0
   },
   "theme": [],
-  "enableOnMobile": false,
-  "description": "Zeigt RemNote-Lernstatistiken im Anki-Stil an.",
+  "enableOnMobile": true,
+  "description": "Zeigt RemNote-Lernstatistiken im Anki-Stil an – Neue Karten, Wiederholungen und Gesamtzahl.",
   "requestNative": false,
   "requiredScopes": [
-    {
-      "type": "All",
-      "level": "Read"
-    }
+    { "name": "queue", "level": "read" },
+    { "name": "plugin", "level": "read" },
+    { "name": "events", "level": "read" }
   ]
 }
