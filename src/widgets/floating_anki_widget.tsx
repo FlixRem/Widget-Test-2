@@ -2,11 +2,15 @@ import { usePlugin, renderWidget, useTracker } from "@remnote/plugin-sdk";
 
 export const FloatingAnkiWidget = () => {
   const plugin = usePlugin();
+  console.log("📌 Plugin gestartet!");  // Debugging: Sehen, ob das Widget geladen wird
 
-  // Holen der aktuellen Kartenstatistiken aus der Lernqueue
   let newCards = useTracker(() => plugin.queue.getNumberOfNewCards(), []) || 0;
   let reviews = useTracker(() => plugin.queue.getNumberOfDueCards(), []) || 0;
   let totalCards = newCards + reviews;
+
+  console.log("📊 Neue Karten:", newCards);
+  console.log("🔄 Wiederholungen:", reviews);
+  console.log("📌 Gesamt:", totalCards);
 
   return (
     <div
@@ -28,5 +32,4 @@ export const FloatingAnkiWidget = () => {
   );
 };
 
-// Widget in RemNote registrieren
 renderWidget(FloatingAnkiWidget);
