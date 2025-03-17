@@ -14,8 +14,8 @@
   "description": "Zeigt RemNote-Lernstatistiken im Anki-Stil an – Neue Karten, Wiederholungen und Gesamtzahl.",
   "requestNative": false,
   "requiredScopes": [
-    { "name": "queue", "level": "read" },
-    { "name": "plugin", "level": "read" },
-    { "name": "events", "level": "read" }
+    "queue:read",
+    "plugin:read",
+    "events:read"
   ]
 }
